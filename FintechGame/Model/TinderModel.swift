@@ -11,5 +11,7 @@ struct TinderModel: Codable {
     let text: String
     let character: String?
     let balance: UInt
+    let values: [Int]
+    let link: String?
 }
 

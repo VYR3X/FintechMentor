@@ -43,11 +43,13 @@ final class Router {
     
     static func createTinderCard() -> UIViewController {
         if flowCount == 0 {
-            cardModel.append(TinderCardModel(name: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
-                                             description: "Apple Inc",
+            cardModel.append(TinderCardModel(name: "Apple",
+                                             header: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris", text: "BBC",
                                              image: UIImage(named: "image1"),
                                              character: nil,
-                                             balance: 1000))
+                                             balance: 1000,
+                                             values: [13, 23, 15, 17, 19, 31, 23, 15, 16, 14, 17, 23],
+                                             link: nil))
             
             vc.cardModels = cardModel
         }

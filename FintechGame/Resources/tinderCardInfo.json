@@ -1,6 +1,9 @@
 {
     "type": "",
-    "header": "+ babki",
-    "text": "vam povezlo lol",
-    "balance": 1000
+    "header": "TUTORIAL1",
+    "text": "Я тебе так скажу, акции нужно покупать по выгодной цене чтобы продать. Понял? Я не сомневался.",
+    "character": "tutor1",
+    "balance": 1300,
+    "values": [11, 17, 17, 29, 11, 28, 15, 10, 26, 10, 24, 21],
+    "link": ""
 }

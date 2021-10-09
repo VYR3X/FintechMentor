@@ -26,7 +26,7 @@ final class ButtonStackView: UIStackView {
     
     private let passButton: TinderButton = {
         let button = TinderButton()
-        button.setImage(UIImage(named: "pass"), for: .normal)
+        button.setImage(UIImage(named: "dislike"), for: .normal)
         button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
         button.tag = 2
         return button
@@ -34,7 +34,7 @@ final class ButtonStackView: UIStackView {
     
     private let superLikeButton: TinderButton = {
         let button = TinderButton()
-        button.setImage(UIImage(named: "star"), for: .normal)
+        button.setImage(UIImage(named: "safe"), for: .normal)
         button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
         button.tag = 3
         return button
@@ -42,7 +42,7 @@ final class ButtonStackView: UIStackView {
     
     private let likeButton: TinderButton = {
         let button = TinderButton()
-        button.setImage(UIImage(named: "heart"), for: .normal)
+        button.setImage(UIImage(named: "like"), for: .normal)
         button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
         button.tag = 4
         return button

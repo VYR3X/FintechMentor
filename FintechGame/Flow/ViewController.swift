@@ -15,6 +15,17 @@ final class ViewController: UIViewController {
     
     var model: Stock? = nil
 
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "logo")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        imageView.addGestureRecognizer(tapGR)
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }()
+    
     private var welcomeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,25 +45,16 @@ final class ViewController: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(self.tappedNext))
+        navigationController?.navigationBar.barTintColor = .systemTeal
         setup()
-        
-//        manager.getCurrencyesJson { result in
-//            switch result {
-//            case .success(let model):
-//                self.model = model
-//                print("G: \(model)")
-//            case .failure(let error):
-//                print("G: \(error)")
-//            }
-//        }
     }
     
     private func setup() {
-        view.addSubview(welcomeLabel)
-//        welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        welcomeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        welcomeLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        welcomeLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        view.addSubview(imageView)
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     @objc private func addTapped() {
@@ -69,4 +71,9 @@ final class ViewController: UIViewController {
 //        let viewController = router?.createBuySellViewController()
 //        navigationController?.pushViewController(viewController!, animated: true)
 //    }
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        let viewController = Router.createTinderCard()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

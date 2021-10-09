@@ -131,34 +131,41 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
         for direction in card.swipeDirections {
             card.setOverlay(TinderCardOverlay(direction: direction), forDirection: direction)
         }
-
-        //cardModels[index]
 //        navigationItem.title = "Баланс: \(cardModels[index].balance)"
-        conditionView.balanceLabel.text = "Баланс: \(cardModels[index].balance)"
-        let resultTitle = "Новости: \(cardModels[index].description)"
-        let content = TraidCard(withImage: cardModels[index].image, title: resultTitle)
+        conditionView.balanceLabel.text = "Баланс: \(cardModels[index].balance) $"
+        let resultTitle = "\(cardModels[index].header)\n\(cardModels[index].text)"
+        let content = TraidCard(withImage: cardModels[index].image,
+                                title: resultTitle,
+                                stockArray: cardModels[index].values,
+                                referense: cardModels[index].link)
         card.content = content //TraidCard(withImage: cardModels[index].image, title: resultTitle)
         
         let persona = cardModels[index].character
+        let link = cardModels[index].link
+        
+        if link == nil {
+            content.sharingButton.isHidden = true
+        } else {
+            content.sharingButton.isHidden = false
+        }
+        
         if persona != nil {
             switch persona {
             case "tutor1":
                 content.characterView.image = UIImage(named: "hill")
             case "tutor2":
-                content.characterView.image = UIImage(named: "macconahi")
+                content.characterView.image = UIImage(named: "matt")
             case "saver":
-                content.characterView.image = UIImage(named: "oleg")
+                content.characterView.image = UIImage(named: "buffet")
             case "mavrodi":
-                content.characterView.image = UIImage(named: "leo")
+                content.characterView.image = UIImage(named: "mavrodi")
             case .none:
                 print("HH")
             case .some(_):
                 print("HH")
             }
-//            content.characterView.image = UIImage(named: "oleg")
             content.characterView.isHidden = false
         } else {
-//                        self.imageView.backgroundColor = .clear
             content.characterView.isHidden = true
         }
         //TinderCardContentView(withImage: model.image)
@@ -174,19 +181,15 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
         print("Swiped all cards!")
         switch cardDirection {
         case .left:
-//            Router.postRequest(userAnswer: false)
             addCards(userAnswer: false)
             cardDirection = .left
         case .right:
-//            Router.postRequest(userAnswer: true)
             addCards(userAnswer: true)
             cardDirection = .right
         case .up:
-//            Router.postRequest(userAnswer: true)
             addCards(userAnswer: true)
             cardDirection = .up
         case .down:
-//            Router.postRequest(userAnswer: true)
             addCards(userAnswer: true)
             cardDirection = .down
         case .none:
@@ -205,25 +208,17 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
         print("Swiped \(direction) on \(cardModels[index].name)")
         switch direction {
         case .left:
-//            addCards(userAnswer: false)
             cardDirection = .left
         case .right:
-//            Router.postRequest(userAnswer: true)
-//            addCards(userAnswer: true)
             cardDirection = .right
         case .up:
-//            Router.postRequest(userAnswer: true)
-//            addCards(userAnswer: true)
             cardDirection = .up
         case .down:
-//            Router.postRequest(userAnswer: true)
-//            addCards(userAnswer: true)
             cardDirection = .down
         }
     }
     
     private func addCards(userAnswer: Bool) {
-        
         Router.networkManager.postRequest(userAnswer: userAnswer) { result in
             switch result {
             case .success(let model):
@@ -232,13 +227,13 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
                 let newModelsCount = oldModelsCount
                 DispatchQueue.main.async {
                     let newModel = TinderCardModel(name: model.header,
-                                                          description: model.text,
-                                                          image: UIImage(named: "image2"),
-                                                          character: model.character,
-                                                          balance: model.balance)
-//                    self.cardModels.append(newModel)
+                                                   header: model.header, text: model.text,
+                                                   image: UIImage(named: "image2"),
+                                                   character: model.character,
+                                                   balance: model.balance,
+                                                   values: model.values,
+                                                   link: model.link)
                     self.cardModels = [newModel]
-                    
                     let newIndices = Array(oldModelsCount..<newModelsCount)
                     self.cardStack.appendCards(atIndices: newIndices)
                     self.cardStack.reloadData()
