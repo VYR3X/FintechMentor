@@ -11,6 +11,21 @@
 		414CC06F2710AEA3003AEEC7 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC06E2710AEA3003AEEC7 /* NewsViewController.swift */; };
 		414CC0722710AEF6003AEEC7 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0712710AEF6003AEEC7 /* BalloonMarker.swift */; };
 		414CC0742710BBB0003AEEC7 /* MultipleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0732710BBB0003AEEC7 /* MultipleView.swift */; };
+		414CC0762710C76A003AEEC7 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0752710C76A003AEEC7 /* TutorialViewController.swift */; };
+		414CC0782710C7B6003AEEC7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0772710C7B6003AEEC7 /* Router.swift */; };
+		414CC07A2710CC2B003AEEC7 /* FlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0792710CC2B003AEEC7 /* FlowAssembly.swift */; };
+		414CC07C2710E810003AEEC7 /* AppleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC07B2710E810003AEEC7 /* AppleModel.swift */; };
+		414CC07E2710EC55003AEEC7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC07D2710EC55003AEEC7 /* NetworkManager.swift */; };
+		414CC0882711A0EB003AEEC7 /* TinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0872711A0EB003AEEC7 /* TinderViewController.swift */; };
+		414CC08A2711A1DD003AEEC7 /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0892711A1DD003AEEC7 /* ButtonStackView.swift */; };
+		414CC08C2711A1EE003AEEC7 /* TinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC08B2711A1EE003AEEC7 /* TinderButton.swift */; };
+		414CC08E2711A201003AEEC7 /* TinderCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC08D2711A201003AEEC7 /* TinderCardModel.swift */; };
+		414CC0912711A247003AEEC7 /* TinderCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0902711A247003AEEC7 /* TinderCardOverlay.swift */; };
+		414CC0932711A25B003AEEC7 /* TinderCardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0922711A25B003AEEC7 /* TinderCardFooterView.swift */; };
+		414CC0952711A268003AEEC7 /* TinderCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0942711A268003AEEC7 /* TinderCardContentView.swift */; };
+		414CC0972711A28D003AEEC7 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0962711A28D003AEEC7 /* UIView+Extensions.swift */; };
+		414CC0992711C483003AEEC7 /* TraidCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0982711C483003AEEC7 /* TraidCard.swift */; };
+		414CC09C2711CF90003AEEC7 /* FunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC09B2711CF90003AEEC7 /* FunViewController.swift */; };
 		4194D786270F81990068B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D785270F81990068B9EA /* AppDelegate.swift */; };
 		4194D788270F81990068B9EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D787270F81990068B9EA /* SceneDelegate.swift */; };
 		4194D78A270F81990068B9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D789270F81990068B9EA /* ViewController.swift */; };
@@ -53,6 +68,21 @@
 		414CC06E2710AEA3003AEEC7 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		414CC0712710AEF6003AEEC7 /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		414CC0732710BBB0003AEEC7 /* MultipleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleView.swift; sourceTree = "<group>"; };
+		414CC0752710C76A003AEEC7 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		414CC0772710C7B6003AEEC7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		414CC0792710CC2B003AEEC7 /* FlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowAssembly.swift; sourceTree = "<group>"; };
+		414CC07B2710E810003AEEC7 /* AppleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleModel.swift; sourceTree = "<group>"; };
+		414CC07D2710EC55003AEEC7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		414CC0872711A0EB003AEEC7 /* TinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderViewController.swift; sourceTree = "<group>"; };
+		414CC0892711A1DD003AEEC7 /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
+		414CC08B2711A1EE003AEEC7 /* TinderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderButton.swift; sourceTree = "<group>"; };
+		414CC08D2711A201003AEEC7 /* TinderCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardModel.swift; sourceTree = "<group>"; };
+		414CC0902711A247003AEEC7 /* TinderCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardOverlay.swift; sourceTree = "<group>"; };
+		414CC0922711A25B003AEEC7 /* TinderCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardFooterView.swift; sourceTree = "<group>"; };
+		414CC0942711A268003AEEC7 /* TinderCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardContentView.swift; sourceTree = "<group>"; };
+		414CC0962711A28D003AEEC7 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		414CC0982711C483003AEEC7 /* TraidCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraidCard.swift; sourceTree = "<group>"; };
+		414CC09B2711CF90003AEEC7 /* FunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunViewController.swift; sourceTree = "<group>"; };
 		4194D782270F81990068B9EA /* FintechGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4194D785270F81990068B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4194D787270F81990068B9EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,8 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				4194D789270F81990068B9EA /* ViewController.swift */,
-				414CC06C2710AE52003AEEC7 /* BuySellViewController.swift */,
-				414CC06E2710AEA3003AEEC7 /* NewsViewController.swift */,
+				414CC09A2711CF88003AEEC7 /* Fun */,
+				414CC08027119B49003AEEC7 /* News */,
+				414CC07F27119B41003AEEC7 /* Tinder */,
+				414CC0792710CC2B003AEEC7 /* FlowAssembly.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -122,6 +154,48 @@
 				414CC0732710BBB0003AEEC7 /* MultipleView.swift */,
 			);
 			path = Supplimentary;
+			sourceTree = "<group>";
+		};
+		414CC07F27119B41003AEEC7 /* Tinder */ = {
+			isa = PBXGroup;
+			children = (
+				414CC0872711A0EB003AEEC7 /* TinderViewController.swift */,
+				414CC0892711A1DD003AEEC7 /* ButtonStackView.swift */,
+				414CC08B2711A1EE003AEEC7 /* TinderButton.swift */,
+				414CC08D2711A201003AEEC7 /* TinderCardModel.swift */,
+				414CC08F2711A234003AEEC7 /* TinderCard */,
+			);
+			path = Tinder;
+			sourceTree = "<group>";
+		};
+		414CC08027119B49003AEEC7 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				414CC06E2710AEA3003AEEC7 /* NewsViewController.swift */,
+				414CC06C2710AE52003AEEC7 /* BuySellViewController.swift */,
+				414CC0752710C76A003AEEC7 /* TutorialViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		414CC08F2711A234003AEEC7 /* TinderCard */ = {
+			isa = PBXGroup;
+			children = (
+				414CC0942711A268003AEEC7 /* TinderCardContentView.swift */,
+				414CC0902711A247003AEEC7 /* TinderCardOverlay.swift */,
+				414CC0922711A25B003AEEC7 /* TinderCardFooterView.swift */,
+				414CC0962711A28D003AEEC7 /* UIView+Extensions.swift */,
+				414CC0982711C483003AEEC7 /* TraidCard.swift */,
+			);
+			path = TinderCard;
+			sourceTree = "<group>";
+		};
+		414CC09A2711CF88003AEEC7 /* Fun */ = {
+			isa = PBXGroup;
+			children = (
+				414CC09B2711CF90003AEEC7 /* FunViewController.swift */,
+			);
+			path = Fun;
 			sourceTree = "<group>";
 		};
 		4194D779270F81990068B9EA = {
@@ -151,6 +225,8 @@
 			children = (
 				4194D785270F81990068B9EA /* AppDelegate.swift */,
 				4194D787270F81990068B9EA /* SceneDelegate.swift */,
+				414CC07D2710EC55003AEEC7 /* NetworkManager.swift */,
+				414CC0772710C7B6003AEEC7 /* Router.swift */,
 				414CC06B2710AE36003AEEC7 /* Flow */,
 				414CC0702710AEDB003AEEC7 /* Supplimentary */,
 				4194D7BB270F82C20068B9EA /* Model */,
@@ -194,6 +270,7 @@
 			children = (
 				4194D7BC270F82CF0068B9EA /* StockModel.swift */,
 				4194D7BE270F82EF0068B9EA /* Stubs.swift */,
+				414CC07B2710E810003AEEC7 /* AppleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,15 +536,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414CC0992711C483003AEEC7 /* TraidCard.swift in Sources */,
 				4194D78A270F81990068B9EA /* ViewController.swift in Sources */,
 				4194D7BD270F82CF0068B9EA /* StockModel.swift in Sources */,
 				4194D786270F81990068B9EA /* AppDelegate.swift in Sources */,
 				414CC0722710AEF6003AEEC7 /* BalloonMarker.swift in Sources */,
+				414CC0932711A25B003AEEC7 /* TinderCardFooterView.swift in Sources */,
+				414CC0912711A247003AEEC7 /* TinderCardOverlay.swift in Sources */,
+				414CC0952711A268003AEEC7 /* TinderCardContentView.swift in Sources */,
+				414CC0782710C7B6003AEEC7 /* Router.swift in Sources */,
+				414CC07A2710CC2B003AEEC7 /* FlowAssembly.swift in Sources */,
 				4194D7BF270F82EF0068B9EA /* Stubs.swift in Sources */,
 				414CC06D2710AE52003AEEC7 /* BuySellViewController.swift in Sources */,
 				4194D788270F81990068B9EA /* SceneDelegate.swift in Sources */,
+				414CC08E2711A201003AEEC7 /* TinderCardModel.swift in Sources */,
+				414CC0972711A28D003AEEC7 /* UIView+Extensions.swift in Sources */,
 				4194D790270F81990068B9EA /* FintechGame.xcdatamodeld in Sources */,
+				414CC0882711A0EB003AEEC7 /* TinderViewController.swift in Sources */,
 				414CC0742710BBB0003AEEC7 /* MultipleView.swift in Sources */,
+				414CC0762710C76A003AEEC7 /* TutorialViewController.swift in Sources */,
+				414CC09C2711CF90003AEEC7 /* FunViewController.swift in Sources */,
+				414CC08C2711A1EE003AEEC7 /* TinderButton.swift in Sources */,
+				414CC08A2711A1DD003AEEC7 /* ButtonStackView.swift in Sources */,
+				414CC07E2710EC55003AEEC7 /* NetworkManager.swift in Sources */,
+				414CC07C2710E810003AEEC7 /* AppleModel.swift in Sources */,
 				414CC06F2710AEA3003AEEC7 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

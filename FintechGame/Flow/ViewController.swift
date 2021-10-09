@@ -6,9 +6,14 @@
 //
 
 import UIKit
-import Charts
 
 final class ViewController: UIViewController {
+    
+    var router: FlowAssembly? = nil
+    
+    let manager = NetworkManager()
+    
+    var model: Stock? = nil
 
     private var welcomeLabel: UILabel = {
         let label = UILabel()
@@ -25,9 +30,21 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemTeal
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Игра", style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Игра",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(self.tappedNext))
         setup()
+        
+//        manager.getCurrencyesJson { result in
+//            switch result {
+//            case .success(let model):
+//                self.model = model
+//                print("G: \(model)")
+//            case .failure(let error):
+//                print("G: \(error)")
+//            }
+//        }
     }
     
     private func setup() {
@@ -39,7 +56,17 @@ final class ViewController: UIViewController {
     }
     
     @objc private func addTapped() {
-        let viewController = BuySellViewController()
+        let viewController = Router.createBuySellViewController(with: model!)
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    @objc private func tappedNext() {
+        let viewController = Router.createFunViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+//    @objc private func nextTap() {
+//        let viewController = router?.createBuySellViewController()
+//        navigationController?.pushViewController(viewController!, animated: true)
+//    }
 }

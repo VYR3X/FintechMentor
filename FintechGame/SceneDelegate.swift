@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
  
+        let assembly = FlowAssembly()
+        let viewController = assembly.createWelcomeViewController()
 //        let mainNavigationViewController = UINavigationController(rootViewController: CountriesViewController())
-        window.rootViewController = UINavigationController(rootViewController: ViewController())
+        window.rootViewController = UINavigationController(rootViewController: viewController)
 
 
          //mainNavigationViewController

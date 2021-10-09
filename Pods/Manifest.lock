@@ -2,17 +2,29 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - pop (1.0.12)
+  - PopBounceButton (1.2.2):
+    - pop (~> 1.0)
+  - Shuffle-iOS (0.5.0)
 
 DEPENDENCIES:
   - Charts
+  - PopBounceButton
+  - Shuffle-iOS
 
 SPEC REPOS:
   trunk:
     - Charts
+    - pop
+    - PopBounceButton
+    - Shuffle-iOS
 
 SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  PopBounceButton: 34105a012678222f058f8d2621672724a3d5c9fb
+  Shuffle-iOS: ff33658fb1e5eebd6a4724c156473e63754be9cb
 
-PODFILE CHECKSUM: 7bf8755bb58b54ae814057b9f0af0cbf1ba655e6
+PODFILE CHECKSUM: a24ef9922ba75e797cac7110ac7df603d7d3ddb3
 
 COCOAPODS: 1.11.0

@@ -1,2 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-FintechGame-FintechGameUITests/Pods-FintechGame-FintechGameUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/PopBounceButton/PopBounceButton.framework
+${BUILT_PRODUCTS_DIR}/Shuffle-iOS/Shuffle_iOS.framework
+${BUILT_PRODUCTS_DIR}/pop/pop.framework

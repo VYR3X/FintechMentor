@@ -11,12 +11,18 @@ import Charts
 /// Экран для обучения покупке продаже акций по цене
 final class BuySellViewController: UIViewController, ChartViewDelegate {
    
+    var navigationTitle = "Сценарий 1"
+    
+    var model: Stock? = nil
+//    var router: FlowAssembly? = nil
+    
     private var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textColor = .black
-        label.text = "0.00"
+//        label.text = "0.00"
+        label.text = "\(Router.userBalance) $"
         label.sizeToFit()
         return label
     }()
@@ -47,21 +53,43 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
  
     private lazy var multipleView: MultipleView = {
         let view = MultipleView()
-        view.leftButtonLabel.text = "Купить"
+        view.leftButtonLabel.text = "Держать"
         view.rightButtonLabel.text = "Продать"
         view.delegate = self
         return view
+    }()
+    
+    private lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.text = model?.testList[Router.buySellFlowCount-1].text
+        return textField
+    }()
+    
+    private let timerView: UILabel = {
+        let label = UILabel()
+        label.text = "\(10) sec"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.cornerRadius = 30
+        return label
     }()
 
     var shouldHideData: Bool = false
     
     // пока мок файл
-    var stockData = [13, 23, 15, 17, 19, 31, 23, 15, 16, 14, 17, 23]
+//    var stockData = [13, 23, 15, 17, 19, 31, 23, 15, 16, 14, 17, 23]
+    
+    var stockData: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Цена"
+        navigationItem.title = navigationTitle
         view.backgroundColor = .white
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Дальше",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(openNextController))
         setupView()
         setupMarker()
         chartView.animate(xAxisDuration: 1)
@@ -87,6 +115,8 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
         view.addSubview(upAndDownLabel)
         view.addSubview(chartView)
         view.addSubview(multipleView)
+        view.addSubview(textField)
+//        view.addSubview(timerView)
         
         NSLayoutConstraint.activate([
         
@@ -104,7 +134,16 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
             multipleView.heightAnchor.constraint(equalToConstant: 60),
             multipleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             multipleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            multipleView.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 20)
+            multipleView.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 20),
+            
+            textField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            textField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            textField.topAnchor.constraint(equalTo: multipleView.bottomAnchor, constant: 20),
+            
+//            textField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+//            textField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+//            textField.topAnchor.constraint(equalTo: multipleView.bottomAnchor, constant: 20),
+            
         ])
     }
     
@@ -161,7 +200,7 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
         chartView.xAxis.gridLineDashPhase = 0
         
         
-        priceLabel.text = "23.00 $"
+        priceLabel.text = "\(Router.userBalance) $"
         self.updateChartData()
     }
     
@@ -198,12 +237,13 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
         chartView.xAxis.gridLineDashLengths = [10, 10]
         chartView.xAxis.gridLineDashPhase = 0
         
-        priceLabel.text = "$30.00"
         //
-        upAndDownLabel.text = "+$7 (+30%)"
+        
+        priceLabel.text = "\(Router.userBalance += 150) $"
+        //
+        upAndDownLabel.text = "+150 $ (+30%)"
         upAndDownLabel.textColor = .green
         self.updateChartData()
-
     }
     
     private func decreaseData() {
@@ -242,10 +282,11 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
         chartView.xAxis.gridLineDashLengths = [10, 10]
         chartView.xAxis.gridLineDashPhase = 0
         
-        priceLabel.text = "$10.00"
+//        priceLabel.text = "850.00 $"
         
+        priceLabel.text = "\(Router.userBalance -= 150) $"
         // цена упала
-        upAndDownLabel.text = "-$13 (-43%)"
+        upAndDownLabel.text = "-150 $ (-43%)"
         upAndDownLabel.textColor = .red
         self.updateChartData()
 
@@ -261,7 +302,17 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
             chartView.data = nil
             return
         }
-        //        self.setDataCount(Int(x), range: UInt32(y))
+        // self.setDataCount(Int(x), range: UInt32(y))
+    }
+    
+    @objc private func openNextController() {
+        if Router.buySellFlowCount < 3 {
+            let vc = Router.createBuySellViewController(with: model!)
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = Router.createFirstFourCard()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -272,10 +323,55 @@ extension BuySellViewController: MultipleViewDelegate {
     func leftButtonHandler() {
         increaseData()
         chartView.animate(xAxisDuration: 1)
+//        if model?.testList[Router.buySellFlowCount].testListRight {}
+        switch Router.buySellFlowCount {
+        case 1:
+            print("Держать +")
+            let viewController = BuySellResultViewController()
+            viewController.welcomeLabel.text = model?.testList[0].explainRight
+            
+            let when = DispatchTime.now() + 2
+            DispatchQueue.main.asyncAfter(deadline: when, execute: {
+                self.present(viewController, animated: true, completion: nil)
+            })
+
+        case 2:
+            print("Держать - ")
+            let viewController = BuySellResultViewController()
+            viewController.welcomeLabel.text = model?.testList[1].explainWrong
+            self.present(viewController, animated: true, completion: nil)
+        case 3:
+            print("Держать + ")
+            let viewController = BuySellResultViewController()
+            viewController.welcomeLabel.text = model?.testList[2].explainRight
+            self.present(viewController, animated: true, completion: nil)
+        default:
+            print("")
+        }
     }
     
     func rightButtonHandler() {
         decreaseData()
         chartView.animate(xAxisDuration: 1)
+        // вынести в отдельную функцию
+        switch Router.buySellFlowCount {
+        case 1:
+            print("Продаем - ")
+            let viewController = BuySellResultViewController()
+            viewController.welcomeLabel.text = model?.testList[0].explainWrong
+            self.present(viewController, animated: true, completion: nil)
+        case 2:
+            print("Продаем + ")
+            let viewController = BuySellResultViewController()
+            viewController.welcomeLabel.text = model?.testList[1].explainRight
+            self.present(viewController, animated: true, completion: nil)
+        case 3:
+            print("Продаем - ")
+            let viewController = BuySellResultViewController()
+            viewController.welcomeLabel.text = model?.testList[2].explainWrong
+            self.present(viewController, animated: true, completion: nil)
+        default:
+            print("")
+        }
     }
 }

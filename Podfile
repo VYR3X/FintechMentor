@@ -8,6 +8,9 @@ target 'FintechGame' do
   # Pods for FintechGame
   # Pods for ChartsTutorial
 	pod 'Charts'
+	pod 'Shuffle-iOS'
+  pod 'PopBounceButton'
+#  pod 'Shuffle-iOS', :path => '../'
 
   target 'FintechGameTests' do
     inherit! :search_paths

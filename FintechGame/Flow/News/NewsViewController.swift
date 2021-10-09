@@ -16,7 +16,6 @@ class NewsViewController: UIViewController, ChartViewDelegate {
     
     var stockData = [13, 23, 15, 17, 19, 31, 23, 15, 16, 14, 17, 23]
     
-    
     var shouldHideData: Bool = false
     
     
