@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import PopBounceButton
+import Shuffle_iOS
 
 final class Router {
     
@@ -16,7 +18,13 @@ final class Router {
     // Стартовый баланс
     static var userBalance = 1000
     
+    static var flowCount = 0
+    
     static let networkManager = NetworkManager()
+    
+    static var cardModel: [TinderCardModel] = []
+    
+    static let vc = TinderViewController()
     
     static let array: [[Int]] = [
         [13, 23, 15, 17, 19, 31, 23, 15, 16, 14, 17, 23],
@@ -33,44 +41,23 @@ final class Router {
         return vc
     }
     
-    
-    static func createFirstFourCard() -> UIViewController {
-        let cardModels = [
-            TinderCardModel(name: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
-                            age: 26,
-                            occupation: "Apple Inc",
-                            image: UIImage(named: "image1")),
-            TinderCardModel(name: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
-                            age: 27,
-                            occupation: "Amazon",
-                            image: UIImage(named: "image2")),
-            TinderCardModel(name: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
-                            age: 23,
-                            occupation: "VTB",
-                            image: UIImage(named: "image3")),
-            TinderCardModel(name: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
-                            age: 25,
-                            occupation: "Google",
-                            image: UIImage(named: "image1"))
-        ]
-        
-        networkManager.fetchTeachCards { retult in
-            switch retult {
-            case .success(let result):
-                print("Result: \(result)")
-            case .failure(let error):
-                print("Result: \(error)")
-            }
+    static func createTinderCard() -> UIViewController {
+        if flowCount == 0 {
+            cardModel.append(TinderCardModel(name: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
+                                             description: "Apple Inc",
+                                             image: UIImage(named: "image1"),
+                                             character: nil,
+                                             balance: 1000))
+            
+            vc.cardModels = cardModel
         }
-        
-        let vc = TinderViewController()
-        vc.cardModels = cardModels
+        flowCount += 1
         return vc
     }
-    
+        
     // Обучение в развлекательном формате 
     static func createFunViewController() -> UIViewController {
-        let vc = FunViewController()
+        let vc = ScrollViewController() //FunViewController()
         return vc
     }
 }

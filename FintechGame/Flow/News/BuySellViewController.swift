@@ -310,7 +310,7 @@ final class BuySellViewController: UIViewController, ChartViewDelegate {
             let vc = Router.createBuySellViewController(with: model!)
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = Router.createFirstFourCard()
+            let vc = Router.createTinderCard()
             navigationController?.pushViewController(vc, animated: true)
         }
     }

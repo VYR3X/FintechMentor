@@ -9,9 +9,9 @@ import UIKit
 
 /// Модель для карточки 
 struct TinderCardModel {
-  let name: String
-  let age: Int
-  let occupation: String
-  let image: UIImage?
+    let name: String
+    let description: String
+    let image: UIImage?
+    let character: String?
+    let balance: UInt
 }
-

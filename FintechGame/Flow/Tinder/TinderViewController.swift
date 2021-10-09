@@ -13,11 +13,27 @@ class TinderViewController: UIViewController {
     
     var cardModels: [TinderCardModel] = []
     
+    var cardDirection: SwipeDirection? = .left
+    
     // MARK: UI
     
-    private let cardStack = SwipeCardStack()
+    let cardStack = SwipeCardStack()
     private let buttonTopStackView = ButtonStackView()
     private let buttonStackView = ButtonStackView()
+    let conditionView = ConditionView()
+    
+//    private lazy var imageView: UIImageView = {
+//        let imageView = UIImageView()
+////        imageView.image = UIImage(named: "oleg")
+//        imageView.backgroundColor = .clear
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+//        imageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+//        imageView.layer.cornerRadius = 125
+//        imageView.clipsToBounds = true
+//        return imageView
+//    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +46,16 @@ class TinderViewController: UIViewController {
         layoutButtonStackView()
         layoutCardStackView()
         configureBackgroundGradient()
+//        setupOleg()
     }
+    
+//    private func setupOleg() {
+//        view.addSubview(imageView)
+//        NSLayoutConstraint.activate([
+//            imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+//            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+//        ])
+//    }
     
     private func configureNavigationBar() {
         let backButton = UIBarButtonItem(title: "Back",
@@ -62,13 +87,12 @@ class TinderViewController: UIViewController {
     
     
     private func layoutTopButtonStackView() {
-        view.addSubview(buttonTopStackView)
-        buttonTopStackView.anchor(
+        conditionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(conditionView)
+        conditionView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.safeAreaLayoutGuide.leftAnchor,
-            right: view.safeAreaLayoutGuide.rightAnchor,
-            paddingLeft: 24,
-            paddingRight: 24)
+            right: view.safeAreaLayoutGuide.rightAnchor)
     }
     
     private func layoutCardStackView() {
@@ -107,12 +131,38 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
         for direction in card.swipeDirections {
             card.setOverlay(TinderCardOverlay(direction: direction), forDirection: direction)
         }
+
+        //cardModels[index]
+//        navigationItem.title = "Баланс: \(cardModels[index].balance)"
+        conditionView.balanceLabel.text = "Баланс: \(cardModels[index].balance)"
+        let resultTitle = "Новости: \(cardModels[index].description)"
+        let content = TraidCard(withImage: cardModels[index].image, title: resultTitle)
+        card.content = content //TraidCard(withImage: cardModels[index].image, title: resultTitle)
         
-        let model = cardModels[index]
-        let resultTitle = "Новости: \(model.name)"
-        card.content = TraidCard(withImage: model.image, title: resultTitle) //TinderCardContentView(withImage: model.image)
+        let persona = cardModels[index].character
+        if persona != nil {
+            switch persona {
+            case "tutor1":
+                content.characterView.image = UIImage(named: "hill")
+            case "tutor2":
+                content.characterView.image = UIImage(named: "macconahi")
+            case "saver":
+                content.characterView.image = UIImage(named: "oleg")
+            case "mavrodi":
+                content.characterView.image = UIImage(named: "leo")
+            case .none:
+                print("HH")
+            case .some(_):
+                print("HH")
+            }
+//            content.characterView.image = UIImage(named: "oleg")
+            content.characterView.isHidden = false
+        } else {
+//                        self.imageView.backgroundColor = .clear
+            content.characterView.isHidden = true
+        }
+        //TinderCardContentView(withImage: model.image)
 //        card.footer = TinderCardFooterView(withTitle: "\(model.name)", subtitle: model.occupation)
-        
         return card
     }
     
@@ -122,15 +172,81 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
     
     func didSwipeAllCards(_ cardStack: SwipeCardStack) {
         print("Swiped all cards!")
-        navigationController?.pushViewController(Router.createFunViewController(), animated: true)
+        switch cardDirection {
+        case .left:
+//            Router.postRequest(userAnswer: false)
+            addCards(userAnswer: false)
+            cardDirection = .left
+        case .right:
+//            Router.postRequest(userAnswer: true)
+            addCards(userAnswer: true)
+            cardDirection = .right
+        case .up:
+//            Router.postRequest(userAnswer: true)
+            addCards(userAnswer: true)
+            cardDirection = .up
+        case .down:
+//            Router.postRequest(userAnswer: true)
+            addCards(userAnswer: true)
+            cardDirection = .down
+        case .none:
+            print("None direction")
+        }
+//        Router.postRequest(userAnswer: true)
+        //navigationController?.pushViewController(Router.createFunViewController(), animated: true)
     }
     
     func cardStack(_ cardStack: SwipeCardStack, didUndoCardAt index: Int, from direction: SwipeDirection) {
         print("Undo \(direction) swipe on \(cardModels[index].name)")
+//        Router.postRequest(userAnswer: true)
     }
     
     func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
         print("Swiped \(direction) on \(cardModels[index].name)")
+        switch direction {
+        case .left:
+//            addCards(userAnswer: false)
+            cardDirection = .left
+        case .right:
+//            Router.postRequest(userAnswer: true)
+//            addCards(userAnswer: true)
+            cardDirection = .right
+        case .up:
+//            Router.postRequest(userAnswer: true)
+//            addCards(userAnswer: true)
+            cardDirection = .up
+        case .down:
+//            Router.postRequest(userAnswer: true)
+//            addCards(userAnswer: true)
+            cardDirection = .down
+        }
+    }
+    
+    private func addCards(userAnswer: Bool) {
+        
+        Router.networkManager.postRequest(userAnswer: userAnswer) { result in
+            switch result {
+            case .success(let model):
+                print("")
+                let oldModelsCount = self.cardModels.count
+                let newModelsCount = oldModelsCount
+                DispatchQueue.main.async {
+                    let newModel = TinderCardModel(name: model.header,
+                                                          description: model.text,
+                                                          image: UIImage(named: "image2"),
+                                                          character: model.character,
+                                                          balance: model.balance)
+//                    self.cardModels.append(newModel)
+                    self.cardModels = [newModel]
+                    
+                    let newIndices = Array(oldModelsCount..<newModelsCount)
+                    self.cardStack.appendCards(atIndices: newIndices)
+                    self.cardStack.reloadData()
+                }
+            case .failure(let error):
+                print("")
+            }
+        }
     }
     
     func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int) {

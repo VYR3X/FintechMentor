@@ -61,7 +61,7 @@ final class ViewController: UIViewController {
     }
     
     @objc private func tappedNext() {
-        let viewController = Router.createFunViewController()
+        let viewController = Router.createTinderCard()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -9,6 +9,18 @@ import UIKit
 
 class TraidCard: UIView {
     
+    lazy var characterView: UIImageView = {
+        let imageView = UIImageView()
+//        imageView.image = UIImage(named: "oleg")
+        imageView.backgroundColor = .clear
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        imageView.layer.cornerRadius = 125
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     private let backgroundView: UIView = {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -27,9 +39,9 @@ class TraidCard: UIView {
         
     private let descriptionTextFiled: UITextView = {
         let sampleTextField =  UITextView()
-        sampleTextField.text = """
-            Акция — это доля в компании. Инвестор, купивший акции, становится совладельцем бизнеса, он может претендовать на часть его прибыли и имущества. Чем большую прибыль получит эмитент, тем больше заработает акционер. С другой стороны, если компания обанкротится, то и стоимость акций упадёт до нуля — тогда инвестор потеряет деньги.
-"""
+//        sampleTextField.text = """
+//            Акция — это доля в компании. Инвестор, купивший акции, становится совладельцем бизнеса, он может претендовать на часть его прибыли и имущества. Чем большую прибыль получит эмитент, тем больше заработает акционер. С другой стороны, если компания обанкротится, то и стоимость акций упадёт до нуля — тогда инвестор потеряет деньги.
+//"""
         sampleTextField.translatesAutoresizingMaskIntoConstraints = false
         sampleTextField.font = UIFont.systemFont(ofSize: 17)
         sampleTextField.showsVerticalScrollIndicator = false
@@ -41,8 +53,9 @@ class TraidCard: UIView {
     init(withImage image: UIImage?, title: String) {
         super.init(frame: .zero)
         imageView.image = image
-//        descriptionTextFiled.text = title
+        descriptionTextFiled.text = title
         initialize()
+        setupOleg()
     }
     
     required init?(coder aDecoder: NSCoder) { return nil }
@@ -64,5 +77,13 @@ class TraidCard: UIView {
             descriptionTextFiled.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20)
         ])
         applyShadow(radius: 8, opacity: 0.2, offset: CGSize(width: 0, height: 2))
+    }
+    
+    private func setupOleg() {
+        imageView.addSubview(characterView)
+        NSLayoutConstraint.activate([
+            characterView.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: -20),
+            characterView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 20),
+        ])
     }
 }
