@@ -19,7 +19,7 @@
 		414CC0882711A0EB003AEEC7 /* TinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0872711A0EB003AEEC7 /* TinderViewController.swift */; };
 		414CC08A2711A1DD003AEEC7 /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0892711A1DD003AEEC7 /* ButtonStackView.swift */; };
 		414CC08C2711A1EE003AEEC7 /* TinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC08B2711A1EE003AEEC7 /* TinderButton.swift */; };
-		414CC08E2711A201003AEEC7 /* TinderCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC08D2711A201003AEEC7 /* TinderCardModel.swift */; };
+		414CC08E2711A201003AEEC7 /* TinderCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC08D2711A201003AEEC7 /* TinderCardViewModel.swift */; };
 		414CC0912711A247003AEEC7 /* TinderCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0902711A247003AEEC7 /* TinderCardOverlay.swift */; };
 		414CC0932711A25B003AEEC7 /* TinderCardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0922711A25B003AEEC7 /* TinderCardFooterView.swift */; };
 		414CC0952711A268003AEEC7 /* TinderCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0942711A268003AEEC7 /* TinderCardContentView.swift */; };
@@ -29,8 +29,10 @@
 		414CC09E2711EA5E003AEEC7 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC09D2711EA5E003AEEC7 /* ScrollViewController.swift */; };
 		414CC0A02711EA82003AEEC7 /* FunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC09F2711EA82003AEEC7 /* FunView.swift */; };
 		414CC0A22711EEBB003AEEC7 /* ConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0A12711EEBB003AEEC7 /* ConditionView.swift */; };
-		414CC0A427120108003AEEC7 /* TinderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CC0A327120108003AEEC7 /* TinderModel.swift */; };
-		414CC0A627120742003AEEC7 /* tinderCardInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 414CC0A527120742003AEEC7 /* tinderCardInfo.json */; };
+		414CC0A627120742003AEEC7 /* defaultCard.json in Resources */ = {isa = PBXBuildFile; fileRef = 414CC0A527120742003AEEC7 /* defaultCard.json */; };
+		418DF896271499CB00111A4E /* mentorCard.json in Resources */ = {isa = PBXBuildFile; fileRef = 418DF895271499CB00111A4E /* mentorCard.json */; };
+		418DF89827149A1900111A4E /* linkCard.json in Resources */ = {isa = PBXBuildFile; fileRef = 418DF89727149A1900111A4E /* linkCard.json */; };
+		418DF89A2714A27100111A4E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418DF8992714A27100111A4E /* Extension.swift */; };
 		4194D786270F81990068B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D785270F81990068B9EA /* AppDelegate.swift */; };
 		4194D788270F81990068B9EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D787270F81990068B9EA /* SceneDelegate.swift */; };
 		4194D78A270F81990068B9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D789270F81990068B9EA /* ViewController.swift */; };
@@ -39,7 +41,6 @@
 		4194D795270F819C0068B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4194D793270F819C0068B9EA /* LaunchScreen.storyboard */; };
 		4194D7A0270F819D0068B9EA /* FintechGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D79F270F819D0068B9EA /* FintechGameTests.swift */; };
 		4194D7AB270F819D0068B9EA /* FintechGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D7AA270F819D0068B9EA /* FintechGameUITests.swift */; };
-		4194D7BA270F82A30068B9EA /* stocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4194D7B9270F82A30068B9EA /* stocks.json */; };
 		4194D7BD270F82CF0068B9EA /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D7BC270F82CF0068B9EA /* StockModel.swift */; };
 		4194D7BF270F82EF0068B9EA /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194D7BE270F82EF0068B9EA /* Stubs.swift */; };
 		75A773C7C37A7AE730C6E7A6 /* Pods_FintechGame_FintechGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8F36E4981F03875EA646CD /* Pods_FintechGame_FintechGameUITests.framework */; };
@@ -81,7 +82,7 @@
 		414CC0872711A0EB003AEEC7 /* TinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderViewController.swift; sourceTree = "<group>"; };
 		414CC0892711A1DD003AEEC7 /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
 		414CC08B2711A1EE003AEEC7 /* TinderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderButton.swift; sourceTree = "<group>"; };
-		414CC08D2711A201003AEEC7 /* TinderCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardModel.swift; sourceTree = "<group>"; };
+		414CC08D2711A201003AEEC7 /* TinderCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardViewModel.swift; sourceTree = "<group>"; };
 		414CC0902711A247003AEEC7 /* TinderCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardOverlay.swift; sourceTree = "<group>"; };
 		414CC0922711A25B003AEEC7 /* TinderCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardFooterView.swift; sourceTree = "<group>"; };
 		414CC0942711A268003AEEC7 /* TinderCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCardContentView.swift; sourceTree = "<group>"; };
@@ -91,8 +92,10 @@
 		414CC09D2711EA5E003AEEC7 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		414CC09F2711EA82003AEEC7 /* FunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunView.swift; sourceTree = "<group>"; };
 		414CC0A12711EEBB003AEEC7 /* ConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionView.swift; sourceTree = "<group>"; };
-		414CC0A327120108003AEEC7 /* TinderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderModel.swift; sourceTree = "<group>"; };
-		414CC0A527120742003AEEC7 /* tinderCardInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tinderCardInfo.json; sourceTree = "<group>"; };
+		414CC0A527120742003AEEC7 /* defaultCard.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultCard.json; sourceTree = "<group>"; };
+		418DF895271499CB00111A4E /* mentorCard.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mentorCard.json; sourceTree = "<group>"; };
+		418DF89727149A1900111A4E /* linkCard.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = linkCard.json; sourceTree = "<group>"; };
+		418DF8992714A27100111A4E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4194D782270F81990068B9EA /* FintechGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4194D785270F81990068B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4194D787270F81990068B9EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		4194D7A6270F819D0068B9EA /* FintechGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4194D7AA270F819D0068B9EA /* FintechGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechGameUITests.swift; sourceTree = "<group>"; };
 		4194D7AC270F819D0068B9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4194D7B9270F82A30068B9EA /* stocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stocks.json; sourceTree = "<group>"; };
 		4194D7BC270F82CF0068B9EA /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		4194D7BE270F82EF0068B9EA /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		62C7D66D6E0767D3D80945EF /* Pods-FintechGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FintechGameTests.debug.xcconfig"; path = "Target Support Files/Pods-FintechGameTests/Pods-FintechGameTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,7 +196,6 @@
 				414CC0942711A268003AEEC7 /* TinderCardContentView.swift */,
 				414CC0902711A247003AEEC7 /* TinderCardOverlay.swift */,
 				414CC0922711A25B003AEEC7 /* TinderCardFooterView.swift */,
-				414CC0962711A28D003AEEC7 /* UIView+Extensions.swift */,
 				414CC0982711C483003AEEC7 /* TraidCard.swift */,
 			);
 			path = TinderCard;
@@ -272,8 +273,11 @@
 		4194D7B8270F828A0068B9EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4194D7B9270F82A30068B9EA /* stocks.json */,
-				414CC0A527120742003AEEC7 /* tinderCardInfo.json */,
+				414CC0A527120742003AEEC7 /* defaultCard.json */,
+				418DF895271499CB00111A4E /* mentorCard.json */,
+				418DF89727149A1900111A4E /* linkCard.json */,
+				418DF8992714A27100111A4E /* Extension.swift */,
+				414CC0962711A28D003AEEC7 /* UIView+Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -281,11 +285,10 @@
 		4194D7BB270F82C20068B9EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				414CC08D2711A201003AEEC7 /* TinderCardModel.swift */,
+				414CC08D2711A201003AEEC7 /* TinderCardViewModel.swift */,
 				4194D7BC270F82CF0068B9EA /* StockModel.swift */,
 				4194D7BE270F82EF0068B9EA /* Stubs.swift */,
 				414CC07B2710E810003AEEC7 /* AppleModel.swift */,
-				414CC0A327120108003AEEC7 /* TinderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,10 +424,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				418DF89827149A1900111A4E /* linkCard.json in Resources */,
+				418DF896271499CB00111A4E /* mentorCard.json in Resources */,
 				4194D795270F819C0068B9EA /* LaunchScreen.storyboard in Resources */,
 				4194D792270F819C0068B9EA /* Assets.xcassets in Resources */,
-				4194D7BA270F82A30068B9EA /* stocks.json in Resources */,
-				414CC0A627120742003AEEC7 /* tinderCardInfo.json in Resources */,
+				414CC0A627120742003AEEC7 /* defaultCard.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,13 +570,12 @@
 				4194D7BF270F82EF0068B9EA /* Stubs.swift in Sources */,
 				414CC06D2710AE52003AEEC7 /* BuySellViewController.swift in Sources */,
 				4194D788270F81990068B9EA /* SceneDelegate.swift in Sources */,
-				414CC08E2711A201003AEEC7 /* TinderCardModel.swift in Sources */,
+				414CC08E2711A201003AEEC7 /* TinderCardViewModel.swift in Sources */,
 				414CC0972711A28D003AEEC7 /* UIView+Extensions.swift in Sources */,
 				4194D790270F81990068B9EA /* FintechGame.xcdatamodeld in Sources */,
 				414CC0882711A0EB003AEEC7 /* TinderViewController.swift in Sources */,
 				414CC0742710BBB0003AEEC7 /* MultipleView.swift in Sources */,
 				414CC0762710C76A003AEEC7 /* TutorialViewController.swift in Sources */,
-				414CC0A427120108003AEEC7 /* TinderModel.swift in Sources */,
 				414CC09C2711CF90003AEEC7 /* FunViewController.swift in Sources */,
 				414CC0A02711EA82003AEEC7 /* FunView.swift in Sources */,
 				414CC08C2711A1EE003AEEC7 /* TinderButton.swift in Sources */,
@@ -580,6 +583,7 @@
 				414CC0A22711EEBB003AEEC7 /* ConditionView.swift in Sources */,
 				414CC07E2710EC55003AEEC7 /* NetworkManager.swift in Sources */,
 				414CC07C2710E810003AEEC7 /* AppleModel.swift in Sources */,
+				418DF89A2714A27100111A4E /* Extension.swift in Sources */,
 				414CC06F2710AEA3003AEEC7 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

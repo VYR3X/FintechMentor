@@ -11,7 +11,7 @@ import Shuffle_iOS
 /// Конроллер для отображения стека с карточками
 class TinderViewController: UIViewController {
     
-    var cardModels: [TinderCardModel] = []
+    var cardModels: [TinderCardViewModel] = []
     
     var cardDirection: SwipeDirection? = .left
     
@@ -134,10 +134,11 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
 //        navigationItem.title = "Баланс: \(cardModels[index].balance)"
         conditionView.balanceLabel.text = "Баланс: \(cardModels[index].balance) $"
         let resultTitle = "\(cardModels[index].header)\n\(cardModels[index].text)"
-        let content = TraidCard(withImage: cardModels[index].image,
-                                title: resultTitle,
+        
+        let content = TraidCard(title: resultTitle,
                                 stockArray: cardModels[index].values,
                                 referense: cardModels[index].link)
+        
         card.content = content //TraidCard(withImage: cardModels[index].image, title: resultTitle)
         
         let persona = cardModels[index].character
@@ -226,7 +227,7 @@ extension TinderViewController: ButtonStackViewDelegate, SwipeCardStackDataSourc
                 let oldModelsCount = self.cardModels.count
                 let newModelsCount = oldModelsCount
                 DispatchQueue.main.async {
-                    let newModel = TinderCardModel(name: model.header,
+                    let newModel = TinderCardViewModel(name: model.header,
                                                    header: model.header, text: model.text,
                                                    image: UIImage(named: "image2"),
                                                    character: model.character,

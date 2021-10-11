@@ -66,22 +66,18 @@ final class ButtonStackView: UIStackView {
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configureButtons() {
-        let largeMultiplier: CGFloat = 66 / 414 //based on width of iPhone 8+
-        let smallMultiplier: CGFloat = 54 / 414 //based on width of iPhone 8+
-//        addArrangedSubview(from: undoButton, diameterMultiplier: smallMultiplier)
-        addArrangedSubview(from: passButton, diameterMultiplier: largeMultiplier)
-        addArrangedSubview(from: superLikeButton, diameterMultiplier: smallMultiplier)
-        addArrangedSubview(from: likeButton, diameterMultiplier: largeMultiplier)
-//        addArrangedSubview(from: boostButton, diameterMultiplier: smallMultiplier)
+        addArrangedSubview(from: passButton, height: 50)
+        addArrangedSubview(from: superLikeButton, height: 50)
+        addArrangedSubview(from: likeButton, height: 50)
     }
     
-    private func addArrangedSubview(from button: TinderButton, diameterMultiplier: CGFloat) {
+    private func addArrangedSubview(from button: TinderButton, height: CGFloat) {
         let container = ButtonContainer()
         container.addSubview(button)
         button.anchorToSuperview()
         addArrangedSubview(container)
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: diameterMultiplier).isActive = true
+        container.widthAnchor.constraint(equalToConstant: height).isActive = true
         container.heightAnchor.constraint(equalTo: button.widthAnchor).isActive = true
     }
     
@@ -92,7 +88,6 @@ final class ButtonStackView: UIStackView {
 }
 
 private class ButtonContainer: UIView {
-    
     override func draw(_ rect: CGRect) {
         applyShadow(radius: 0.2 * bounds.width, opacity: 0.05, offset: CGSize(width: 0, height: 0.15 * bounds.width))
     }

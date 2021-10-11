@@ -20,9 +20,9 @@ final class Router {
     
     static var flowCount = 0
     
-    static let networkManager = NetworkManager()
+    static var cardModel: [TinderCardViewModel] = []
     
-    static var cardModel: [TinderCardModel] = []
+    static let networkManager = NetworkManager()
     
     static let vc = TinderViewController()
     
@@ -43,8 +43,9 @@ final class Router {
     
     static func createTinderCard() -> UIViewController {
         if flowCount == 0 {
-            cardModel.append(TinderCardModel(name: "Apple",
-                                             header: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris", text: "BBC",
+            cardModel.append(TinderCardViewModel(name: "Apple",
+                                             header: "Глава компании Apple Тим\nКук подписал договор о разработке электромобилей на базе Hunday Solaris",
+                                             text: "BBC",
                                              image: UIImage(named: "image1"),
                                              character: nil,
                                              balance: 1000,

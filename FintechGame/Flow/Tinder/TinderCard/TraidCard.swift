@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class TraidCard: UIView {
+final class TraidCard: UIView {
     
     /// Данные котировок акций
     var stockData = [13, 23, 15, 17, 19, 31, 23, 15, 16, 14, 17, 23]
@@ -19,7 +19,6 @@ class TraidCard: UIView {
     
     lazy var characterView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(named: "oleg")
         imageView.backgroundColor = .clear
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
@@ -52,13 +51,6 @@ class TraidCard: UIView {
         return chartView
     }()
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
     lazy var sharingButton: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "sharing")
@@ -69,40 +61,19 @@ class TraidCard: UIView {
         imageView.isUserInteractionEnabled = true
         return imageView
     }()
-    
-//    lazy var sharingButton: UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.imageView?.image = UIImage(named: "lightning")
-//        button.setImage(UIImage(named: "sharing"), for: .normal)
-//        button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
-//        button.addTarget(self, action: #selector(tapOnButton(sender:)), for: .touchUpInside)
-//        button.tag = 1
-//        button.layer.shadowColor = UIColor.black.cgColor
-//        button.layer.shadowOpacity = 0.2
-//        button.layer.shadowOffset = .zero
-//        button.layer.shadowRadius = 1
-//        button.backgroundColor = .orange
-//        return button
-//    }()
-        
-    private let descriptionTextFiled: UITextView = {
-        let sampleTextField =  UITextView()
-//        sampleTextField.text = """
-//            Акция — это доля в компании. Инвестор, купивший акции, становится совладельцем бизнеса, он может претендовать на часть его прибыли и имущества. Чем большую прибыль получит эмитент, тем больше заработает акционер. С другой стороны, если компания обанкротится, то и стоимость акций упадёт до нуля — тогда инвестор потеряет деньги.
-//"""
+ 
+    private let descriptionTextView: UITextView = {
+        let sampleTextField = UITextView()
         sampleTextField.translatesAutoresizingMaskIntoConstraints = false
         sampleTextField.font = UIFont.systemFont(ofSize: 17)
         sampleTextField.showsVerticalScrollIndicator = false
         sampleTextField.isScrollEnabled = true
-        sampleTextField.sizeToFit()
         return sampleTextField
     }()
     
-    init(withImage image: UIImage?, title: String, stockArray: [Int], referense: String?) {
+    init(title: String, stockArray: [Int], referense: String?) {
         super.init(frame: .zero)
-        imageView.image = image
-        descriptionTextFiled.text = title
+        descriptionTextView.text = title
         stockData = stockArray
         self.referense = referense
         initialize()
@@ -132,17 +103,17 @@ class TraidCard: UIView {
         addSubview(backgroundView)
         backgroundView.anchorToSuperview()
         backgroundView.addSubview(chartView)
-        backgroundView.addSubview(descriptionTextFiled)
+        backgroundView.addSubview(descriptionTextView)
         NSLayoutConstraint.activate([
             chartView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
             chartView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
             chartView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
             chartView.heightAnchor.constraint(equalToConstant: 400),
             
-            descriptionTextFiled.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 20),
-            descriptionTextFiled.leadingAnchor.constraint(equalTo: chartView.leadingAnchor, constant: 15),
-            descriptionTextFiled.trailingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: -15),
-            descriptionTextFiled.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20)
+            descriptionTextView.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 20),
+            descriptionTextView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 15),
+            descriptionTextView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -15),
+            descriptionTextView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20)
         ])
         applyShadow(radius: 8, opacity: 0.2, offset: CGSize(width: 0, height: 2))
     }
